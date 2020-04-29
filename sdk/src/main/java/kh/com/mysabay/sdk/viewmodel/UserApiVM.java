@@ -139,11 +139,11 @@ public class UserApiVM extends ViewModel {
             _networkState.setValue(new NetworkState(NetworkState.Status.ERROR, "Something went wrong, please login again"));
             return;
         }
-        mCompositeDisposable.add(this.userRepo.postVerifyCode(item.data.appSecret, item.data.accessToken, item.data.phone, code).subscribeOn(appRxSchedulers.io())
+        mCompositeDisposable.add(this.userRepo.postVerifyCode(item.data.appSecret, item.data.phone, code).subscribeOn(appRxSchedulers.io())
                 .observeOn(appRxSchedulers.mainThread()).subscribe(response -> {
                     if (response.status == 200) {
                         if (response.data != null) {
-                            AppItem appItem = new AppItem(item.data.appSecret, item.data.accessToken, response.data.uuid, item.data.expire);
+                            AppItem appItem = new AppItem(item.data.appSecret, response.data.accessToken, response.data.refreshToken, response.data.uuid, response.data.expire);
                             String encrypted = gson.toJson(appItem);
                             MySabaySDK.getInstance().saveAppItem(encrypted);
                             MessageUtil.displayToast(context, "verified code success");
@@ -196,7 +196,7 @@ public class UserApiVM extends ViewModel {
                     protected void onSuccess(UserProfileItem userProfileItem) {
                         if (userProfileItem.data != null) {
                             EventBus.getDefault().post(new SubscribeLogin(token, null));
-                            AppItem appItem = new AppItem(sdkConfiguration.appSecret, userProfileItem.data.refreshToken, userProfileItem.data.uuid, userProfileItem.data.expire);
+                            AppItem appItem = new AppItem(sdkConfiguration.appSecret, userProfileItem.data.refreshToken, null, userProfileItem.data.uuid, userProfileItem.data.expire);
                             MySabaySDK.getInstance().saveAppItem(gson.toJson(appItem));
                             context.runOnUiThread(context::finish);
                         } else

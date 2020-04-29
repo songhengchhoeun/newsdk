@@ -22,6 +22,10 @@ public class AppItem implements Parcelable {
     @Expose
     public String token;
 
+    @SerializedName("refreshToken")
+    @Expose
+    public String refreshToken;
+
     @SerializedName("uuid")
     @Expose
     public String uuid;
@@ -30,24 +34,26 @@ public class AppItem implements Parcelable {
     @Expose
     public long expire;
 
-    public AppItem(String appSecret, String token, String uuid, long expire) {
+    public AppItem(String appSecret, String token, String refreshToken, String uuid, long expire) {
         this.appSecret = appSecret;
         this.token = token;
+        this.refreshToken = refreshToken;
         this.uuid = uuid;
         this.expire = expire;
     }
 
-    public AppItem(String appSecret, String token) {
-        this(appSecret, token, null, 0);
+    public AppItem(String appSecret, String token, String refreshToken) {
+        this(appSecret, token, refreshToken, null, 0);
     }
 
     public AppItem(String appSecret) {
-        this(appSecret, null, null, 0);
+        this(appSecret, null, null, null, 0);
     }
 
     protected AppItem(@NotNull Parcel in) {
         appSecret = in.readString();
         token = in.readString();
+        refreshToken = in.readString();
         uuid = in.readString();
         expire = in.readLong();
     }
@@ -74,6 +80,11 @@ public class AppItem implements Parcelable {
         return this;
     }
 
+    public AppItem withRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+        return this;
+    }
+
     public AppItem withUuid(String uuid) {
         this.uuid = uuid;
         return this;
@@ -93,6 +104,7 @@ public class AppItem implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(appSecret);
         dest.writeString(token);
+        dest.writeString(refreshToken);
         dest.writeString(uuid);
         dest.writeLong(expire);
     }

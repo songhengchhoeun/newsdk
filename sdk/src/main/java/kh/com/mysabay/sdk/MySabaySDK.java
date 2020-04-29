@@ -5,6 +5,8 @@ import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import androidx.lifecycle.MediatorLiveData;
+
 import com.google.gson.Gson;
 
 import org.apache.commons.lang3.StringUtils;
@@ -23,9 +25,11 @@ import kh.com.mysabay.sdk.callback.UserInfoListener;
 import kh.com.mysabay.sdk.di.BaseAppComponent;
 import kh.com.mysabay.sdk.di.DaggerBaseAppComponent;
 import kh.com.mysabay.sdk.pojo.AppItem;
+import kh.com.mysabay.sdk.pojo.NetworkState;
 import kh.com.mysabay.sdk.pojo.login.SubscribeLogin;
 import kh.com.mysabay.sdk.pojo.payment.SubscribePayment;
 import kh.com.mysabay.sdk.pojo.profile.UserProfileItem;
+import kh.com.mysabay.sdk.pojo.refreshToken.RefreshTokenItem;
 import kh.com.mysabay.sdk.repository.UserRepo;
 import kh.com.mysabay.sdk.ui.activity.LoginActivity;
 import kh.com.mysabay.sdk.ui.activity.StoreActivity;
@@ -61,6 +65,7 @@ public class MySabaySDK {
 
     private LoginListener loginListner;
     private PaymentListener mPaymentListener;
+    private final MediatorLiveData<NetworkState> _networkState;
 
     @Inject
     public MySabaySDK(Application application, SdkConfiguration configuration) {
@@ -68,6 +73,7 @@ public class MySabaySDK {
         mySabaySDK = this;
         this.mAppContext = application;
         this.mComponent = DaggerBaseAppComponent.create();
+        this._networkState = new MediatorLiveData<>();
         mSdkConfiguration = configuration;
         this.mComponent.inject(this);
         EventBus.getDefault().register(this);
@@ -167,29 +173,30 @@ public class MySabaySDK {
      */
     public void refreshToken(RefreshTokenListener listener) {
         AppItem item = gson.fromJson(getAppItem(), AppItem.class);
-        userRepo.getUserProfile(item.appSecret, item.token).subscribeOn(appRxSchedulers.io())
-                .observeOn(appRxSchedulers.mainThread()).subscribe(new AbstractDisposableObs<UserProfileItem>(mAppContext) {
-            @Override
-            protected void onSuccess(UserProfileItem userProfileItem) {
-                if (listener != null) {
-                    if (userProfileItem.status == 200) {
-                        item.withToken(userProfileItem.data.refreshToken);
-                        item.withExpired(userProfileItem.data.expire);
-                        MySabaySDK.getInstance().saveAppItem(gson.toJson(item));
-                        listener.refreshSuccess(userProfileItem.data.refreshToken);
-                    } else
-                        onErrors(new Error(gson.toJson(userProfileItem)));
-                } else {
-                    onErrors(new NullPointerException("RefreshTokenListener required!!!"));
-                }
-            }
+        userRepo.postRefreshToken(item.appSecret,item.refreshToken)
+                .subscribeOn(appRxSchedulers.io())
+                .observeOn(appRxSchedulers.mainThread()).subscribe(
+                new AbstractDisposableObs<RefreshTokenItem>(mAppContext, _networkState, null) {
+                    @Override
+                    protected void onSuccess(RefreshTokenItem refreshTokenItem) {
+                        if (listener != null) {
+                            if (refreshTokenItem.status == 200) {
+                                item.withToken(refreshTokenItem.data.accessToken);
+                                item.withExpired(refreshTokenItem.data.expire);
+                                MySabaySDK.getInstance().saveAppItem(gson.toJson(item));
+                                listener.refreshSuccess(refreshTokenItem.data.refreshToken);
+                            } else
+                                onErrors(new Error(gson.toJson(refreshTokenItem)));
+                        } else {
+                            onErrors(new NullPointerException("RefreshTokenListener required!!!"));
+                        }
+                    }
 
-            @Override
-            protected void onErrors(@NotNull Throwable error) {
-                LogUtil.error(TAG, error.getLocalizedMessage());
-                if (listener != null) listener.refreshFailed(error);
-            }
-        });
+                    @Override
+                    protected void onErrors(@NotNull Throwable error) {
+                        if (listener != null) listener.refreshFailed(error);
+                    }
+                });
     }
 
     /**
