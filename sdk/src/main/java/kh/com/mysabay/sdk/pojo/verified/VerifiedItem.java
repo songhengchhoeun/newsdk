@@ -22,7 +22,7 @@ public class VerifiedItem implements Parcelable {
     @SerializedName("data")
     @Expose
     public Data data;
-    public final static Parcelable.Creator<VerifiedItem> CREATOR = new Creator<VerifiedItem>() {
+    public final static Creator<VerifiedItem> CREATOR = new Creator<VerifiedItem>() {
 
 
         @SuppressWarnings({

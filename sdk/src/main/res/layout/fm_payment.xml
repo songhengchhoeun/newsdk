@@ -5,13 +5,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <android.support.constraint.ConstraintLayout
             android:id="@+id/view_main_payment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorBackground">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/btn_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -19,9 +19,10 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_back" />
+                app:srcCompat="@drawable/ic_back"
+                />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/btn_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,7 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_close" />
 
-            <com.google.android.material.card.MaterialCardView
+            <android.support.design.card.MaterialCardView
                 android:id="@+id/materialCardView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -46,14 +47,14 @@
                 app:strokeColor="@color/colorYellow"
                 app:strokeWidth="1dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <android.support.constraint.ConstraintLayout
                     android:id="@+id/view_payment_detail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/padding_10"
                     android:layout_marginBottom="@dimen/padding_10">
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/appCompatImageView"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
@@ -64,7 +65,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/ic_game_shop" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/tv_point"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -77,7 +78,7 @@
                         app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
                         app:layout_constraintTop_toTopOf="@+id/appCompatImageView" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/tv_price"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -89,10 +90,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/tv_point"
                         app:layout_constraintTop_toTopOf="@+id/appCompatImageView" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+                </android.support.constraint.ConstraintLayout>
+            </android.support.design.card.MaterialCardView>
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,7 +104,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/guideline6"
                 app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
-            <androidx.constraintlayout.widget.Guideline
+            <android.support.constraint.Guideline
                 android:id="@+id/guideline6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,7 +112,7 @@
                 app:layout_constraintGuide_percent="0.5" />
 
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv_payment_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,7 +132,7 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
                 app:layout_constraintTop_toBottomOf="@+id/materialCardView">
 
-                <androidx.appcompat.widget.AppCompatRadioButton
+                <android.support.v7.widget.AppCompatRadioButton
                     android:id="@+id/rdb_in_app_purchase"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -141,7 +142,7 @@
                     android:text="Android In-app Purchase"
                     android:textColor="@color/colorYellow" />
 
-                <androidx.appcompat.widget.AppCompatRadioButton
+                <android.support.v7.widget.AppCompatRadioButton
                     android:id="@+id/rdb_my_sabay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -153,7 +154,7 @@
                     android:textColor="@color/colorYellow"
                     android:visibility="gone" />
 
-                <androidx.appcompat.widget.AppCompatRadioButton
+                <android.support.v7.widget.AppCompatRadioButton
                     android:id="@+id/rdb_pre_auth_pay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -165,7 +166,7 @@
                     android:textColor="@color/colorYellow"
                     android:visibility="gone" />
 
-                <androidx.appcompat.widget.AppCompatRadioButton
+                <android.support.v7.widget.AppCompatRadioButton
                     android:id="@+id/rdb_third_bank_provider"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -177,7 +178,7 @@
                     android:textColor="@color/colorYellow"/>
             </RadioGroup>
 
-            <androidx.appcompat.widget.AppCompatButton
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btn_pay"
                 style="@style/ButtonPrimary"
                 android:layout_width="150dp"
@@ -191,7 +192,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline6" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
 
 
         <include

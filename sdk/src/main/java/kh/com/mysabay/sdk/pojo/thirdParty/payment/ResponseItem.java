@@ -22,7 +22,7 @@ public class ResponseItem implements Parcelable {
     @SerializedName("data")
     @Expose
     public Data data;
-    public final static Parcelable.Creator<ResponseItem> CREATOR = new Creator<ResponseItem>() {
+    public final static Creator<ResponseItem> CREATOR = new Creator<ResponseItem>() {
 
 
         @SuppressWarnings({

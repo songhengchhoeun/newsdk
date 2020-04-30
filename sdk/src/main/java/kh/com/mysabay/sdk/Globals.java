@@ -2,9 +2,8 @@ package kh.com.mysabay.sdk;
 
 import android.content.Context;
 import android.os.Handler;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
 import com.akexorcist.localizationactivity.core.LanguageSetting;
 

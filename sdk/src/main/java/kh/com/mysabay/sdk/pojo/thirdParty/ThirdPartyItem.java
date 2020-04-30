@@ -26,7 +26,7 @@ public class ThirdPartyItem implements Parcelable {
     @SerializedName("data")
     @Expose
     public List<Data> data = null;
-    public final static Parcelable.Creator<ThirdPartyItem> CREATOR = new Creator<ThirdPartyItem>() {
+    public final static Creator<ThirdPartyItem> CREATOR = new Creator<ThirdPartyItem>() {
 
 
         @NotNull

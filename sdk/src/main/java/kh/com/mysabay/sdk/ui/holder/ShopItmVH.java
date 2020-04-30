@@ -1,10 +1,9 @@
 package kh.com.mysabay.sdk.ui.holder;
 
+import android.databinding.DataBindingUtil;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 

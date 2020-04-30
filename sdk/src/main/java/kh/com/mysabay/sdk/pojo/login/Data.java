@@ -39,7 +39,7 @@ public class Data implements Parcelable {
     public String appSecret;
 
 
-    public final static Parcelable.Creator<Data> CREATOR = new Creator<Data>() {
+    public final static Creator<Data> CREATOR = new Creator<Data>() {
 
 
         @SuppressWarnings({

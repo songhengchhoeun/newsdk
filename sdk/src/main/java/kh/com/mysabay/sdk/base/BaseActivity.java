@@ -3,16 +3,15 @@ package kh.com.mysabay.sdk.base;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
+import android.support.test.espresso.IdlingResource;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.test.espresso.IdlingResource;
 
 import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate;
 import com.akexorcist.localizationactivity.core.OnLocaleChangedListener;
@@ -24,13 +23,7 @@ import kh.com.mysabay.sdk.R;
 import kh.com.mysabay.sdk.utils.FontUtils;
 import kh.com.mysabay.sdk.utils.IdlingResourceHelper;
 
-/**
- * Created by Tan Phirum on 3/4/20
- * Gmail phirumtan@gmail.com
- */
-public abstract class BaseActivity extends AppCompatActivity implements
-        /*NetworkRequestUtils.OnConnectionChangedListener,*/
-        OnLocaleChangedListener {
+public abstract class BaseActivity extends AppCompatActivity implements OnLocaleChangedListener {
 
     private LocalizationActivityDelegate localizationDelegate = new LocalizationActivityDelegate(this);
 
@@ -55,15 +48,12 @@ public abstract class BaseActivity extends AppCompatActivity implements
     protected IdlingResourceHelper mIdlingResourceHelper;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         localizationDelegate.addOnLocaleChangedListener(this);
-        localizationDelegate.onCreate();
+        localizationDelegate.onCreate(savedInstanceState);
         setLanguage(MySabaySDK.getInstance().getSdkConfiguration().sdkLanguages.value);
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        //register check network change
-        /*NetworkRequestUtils networkRequestUtils = new NetworkRequestUtils(this);
-        networkRequestUtils.setOnConnectionChangedListener(this);*/
 
         if (getToolbarId() > 0) {
             mToolbar = findViewById(getToolbarId());
@@ -133,30 +123,6 @@ public abstract class BaseActivity extends AppCompatActivity implements
             super.setTitle(title);
     }
 
-  /*  @Override
-    public void onInternetConnected() {
-        if (isNetWorkHasLost) {
-            MessageUtil.displaySneakBar(getCoordinateLayout(),
-                    R.string.msg_can_not_connect_internet, getString(R.string.online), view -> {
-                        //send broadcast internet connection to other registered
-                        try {
-                            Intent intent = new Intent(NetworkRequestUtils.ACTION_REQUEST_INTERNET_RECONNECTION);
-                            intent.putExtra(NetworkRequestUtils.EXT_KEY_IS_CONNECTED, true);
-                            LocalBroadcastManager.getInstance(view.getContext()).sendBroadcast(intent);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    });
-            isNetWorkHasLost = false;
-        }
-    }
-
-    @Override
-    public void onInternetDisconnected() {
-        isNetWorkHasLost = true;
-        MessageUtil.displaySneakBar(getCoordinateLayout(), R.string.msg_can_not_connect_internet);
-    }*/
-
     /**
      * call before change string language
      */
@@ -195,6 +161,5 @@ public abstract class BaseActivity extends AppCompatActivity implements
     public final Locale getCurrentLanguage() {
         return localizationDelegate.getLanguage(this);
     }
-
 
 }

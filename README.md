@@ -11,7 +11,7 @@ and `appSecret` for the integration.
 The login and payment workflow is described with the following diagram for communication between CP app, server, mySabay SDK and mySabay API.
 
 ### Login flow
-<img src="Images/user-login-flow.png">
+<img src="https://git.sabay.com/mysabay/sdk/app.android.sdk.mysabay.com.public/-/raw/master/Images/user-login-flow.png">
 
 ## Installation
 
@@ -30,7 +30,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'kh.com.mysabay:sabaysdk:1.0.6-b08'
+    implementation 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.1-o'
 }
 ```
 
@@ -154,3 +154,4 @@ To logout user session from the app use the following method:
 ## mySabay API
 ### Server side validation
 In order for the CP server to validate the user access token received from the client as valid, mySabay also hosts pulic user api for fetching user profile and validating token. The API document is available [here](https://api-reference.mysabay.com/).
+

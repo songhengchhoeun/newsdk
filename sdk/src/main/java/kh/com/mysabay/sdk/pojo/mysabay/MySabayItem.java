@@ -26,7 +26,7 @@ public class MySabayItem implements Parcelable {
     @SerializedName("data")
     @Expose
     public List<Data> data = null;
-    public final static Parcelable.Creator<MySabayItem> CREATOR = new Creator<MySabayItem>() {
+    public final static Creator<MySabayItem> CREATOR = new Creator<MySabayItem>() {
 
 
         @NotNull

@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 apply plugin: 'com.github.dcendents.android-maven'
-group='kh.com.sabay'
-version='v1.1'
+group='kh.com.mysabay'
+version='1.0.1-o'
 
 android {
     compileSdkVersion 29
@@ -11,10 +11,10 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 2
+        versionCode 1
         versionName "1.0"
-        vectorDrawables.useSupportLibrary true
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
 
         resValue "string", "store_password", (project.findProperty("STORE_PASS") ?: "")
@@ -30,10 +30,10 @@ android {
         }
     }
 
-
     dataBinding {
         enabled = true
     }
+
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -44,30 +44,17 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:28.0.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    //phone validation
-    implementation 'com.googlecode.libphonenumber:libphonenumber:8.10.3'
-    //pin library
-    implementation('com.alimuzaffar.lib:pinentryedittext:2.0.6') {
-        // Exclude is only needed if you already have
-        // androidx.appcompat as a dependency in your app.
-        exclude group: 'androidx.appcompat', module: 'appcompat'
-    }
-    //
-    implementation compatibility("lifecycleExtensions")
-    //dagger
-    implementation compatibility("dagger")
-    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
-    implementation compatibility("material")
-    implementation compatibility("commonsLang3")
-    implementation compatibility("rxjava")
-    implementation compatibility("rxBindingMaterial")
+    implementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.2'
+    implementation 'com.akexorcist:localizationactivity:1.2.2'
+    implementation 'org.jetbrains:annotations-java5:15.0'
+
     implementation compatibility("gson")
     implementation compatibility("retrofit")
     implementation compatibility("retrofit-convert-gson")
@@ -75,22 +62,38 @@ dependencies {
     implementation compatibility("okhttp3-logging-interceptor")
     implementation compatibility("retrofit-convert-gson")
     implementation compatibility("converterScalars")
-    //dialog
-    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    //rsa
+
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.25.3'
+    implementation 'com.google.dagger:dagger:2.25.3'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.25.3'
+    implementation 'com.google.dagger:dagger-android:2.25.3'
+    implementation 'com.google.dagger:dagger-android-support:2.25.3'
     implementation 'com.yakivmospan:scytale:1.0.1'
-    //localization strings
-    //implementation 'com.akexorcist:localizationactivity:1.2.2'
-    implementation 'com.akexorcist:localization:1.2.4'
-    //animation lib
-    implementation 'com.daimajia.easing:library:2.1@aar'
-    implementation 'com.daimajia.androidanimations:library:2.3@aar'
-    //implementation billing
-    //implementation 'com.android.billingclient:billing:2.1.0'
-    implementation 'com.anjlab.android.iab.v3:library:1.1.0'
-    //implementation project(path: ':pinentryedittext')
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
     implementation 'org.greenrobot:eventbus:3.2.0'
-    //loading image
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0-RC3'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'com.anjlab.android.iab.v3:library:1.1.0'
+
+    //phone validation
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.10.3'
+
+    implementation ('com.alimuzaffar.lib:pinentryedittext:1.3.10') {
+        // Exclude is only needed if you already have
+        // any of the following as a dependency in your project.
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'design'
+
+    }
+
+    implementation ("com.github.bumptech.glide:glide:4.6.1") {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+
 }

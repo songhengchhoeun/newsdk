@@ -25,7 +25,7 @@ public class GoogleVerifyResponse implements Parcelable {
     @SerializedName("data")
     @Expose
     public Object data = null;
-    public final static Parcelable.Creator<GoogleVerifyResponse> CREATOR = new Creator<GoogleVerifyResponse>() {
+    public final static Creator<GoogleVerifyResponse> CREATOR = new Creator<GoogleVerifyResponse>() {
 
 
         @SuppressWarnings({

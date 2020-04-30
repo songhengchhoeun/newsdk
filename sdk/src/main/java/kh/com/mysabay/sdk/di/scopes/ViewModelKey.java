@@ -1,6 +1,6 @@
 package kh.com.mysabay.sdk.di.scopes;
 
-import androidx.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModel;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -33,7 +33,7 @@ public class PaymentResponseItem implements Parcelable {
     @SerializedName("asset_code")
     @Expose
     public String assetCode;
-    public final static Parcelable.Creator<PaymentResponseItem> CREATOR = new Creator<PaymentResponseItem>() {
+    public final static Creator<PaymentResponseItem> CREATOR = new Creator<PaymentResponseItem>() {
 
 
         @NotNull

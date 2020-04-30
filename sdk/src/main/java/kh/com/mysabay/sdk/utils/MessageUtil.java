@@ -2,15 +2,14 @@ package kh.com.mysabay.sdk.utils;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.design.widget.Snackbar;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.AppCompatTextView;
-
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.google.android.material.snackbar.Snackbar;
 
 import org.apache.commons.lang3.StringUtils;
 

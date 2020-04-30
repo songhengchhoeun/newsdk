@@ -1,6 +1,6 @@
 package kh.com.mysabay.sdk.viewmodel;
 
-import androidx.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModel;
 
 import javax.inject.Inject;
 

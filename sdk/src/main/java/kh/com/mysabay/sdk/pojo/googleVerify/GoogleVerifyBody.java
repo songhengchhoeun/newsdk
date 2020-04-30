@@ -21,7 +21,7 @@ public class GoogleVerifyBody implements Parcelable {
     @SerializedName("receipt")
     @Expose
     public ReceiptBody receipt;
-    public final static Parcelable.Creator<GoogleVerifyBody> CREATOR = new Creator<GoogleVerifyBody>() {
+    public final static Creator<GoogleVerifyBody> CREATOR = new Creator<GoogleVerifyBody>() {
 
 
         @NotNull

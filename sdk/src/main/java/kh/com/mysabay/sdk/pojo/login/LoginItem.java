@@ -23,7 +23,7 @@ public class LoginItem implements Parcelable {
     @SerializedName("data")
     @Expose
     public Data data;
-    public final static Parcelable.Creator<LoginItem> CREATOR = new Creator<LoginItem>() {
+    public final static Creator<LoginItem> CREATOR = new Creator<LoginItem>() {
 
 
         @SuppressWarnings({

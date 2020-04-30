@@ -24,7 +24,7 @@ public class UserProfileItem implements Parcelable {
     @SerializedName("data")
     @Expose
     public Data data;
-    public final static Parcelable.Creator<UserProfileItem> CREATOR = new Creator<UserProfileItem>() {
+    public final static Creator<UserProfileItem> CREATOR = new Creator<UserProfileItem>() {
 
 
         @NotNull

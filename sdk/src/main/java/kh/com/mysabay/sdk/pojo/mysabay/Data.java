@@ -27,7 +27,7 @@ public class Data implements Parcelable {
     @SerializedName("asset_code")
     @Expose
     public String assetCode;
-    public final static Parcelable.Creator<Data> CREATOR = new Creator<Data>() {
+    public final static Creator<Data> CREATOR = new Creator<Data>() {
 
 
         @NotNull

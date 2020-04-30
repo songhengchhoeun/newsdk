@@ -1,11 +1,10 @@
 package kh.com.mysabay.sdk.ui.holder;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
@@ -32,9 +31,9 @@ public class BankProviderVH extends RecyclerView.ViewHolder {
     public void showBankIcon(Context context, String url) {
         Glide.with(context)
                 .load(url)
-                .centerCrop()
-                .placeholder(R.drawable.ic_game_shop)
-                .error(R.drawable.ic_game_shop)
+//                .centerCrop()
+//                .placeholder(R.drawable.ic_game_shop)
+//                .error(R.drawable.ic_game_shop)
                 .into(view.appCompatImageView2);
     }
 }

@@ -24,7 +24,7 @@ public class ReceiptBody implements Parcelable {
     @SerializedName("signature")
     @Expose
     public String signature;
-    public final static Parcelable.Creator<ReceiptBody> CREATOR = new Creator<ReceiptBody>() {
+    public final static Creator<ReceiptBody> CREATOR = new Creator<ReceiptBody>() {
 
 
         @NotNull

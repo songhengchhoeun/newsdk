@@ -28,7 +28,7 @@ public class PaymentBody implements Parcelable {
     @SerializedName("asset_code")
     @Expose
     public String assetCode;
-    public final static Parcelable.Creator<PaymentBody> CREATOR = new Creator<PaymentBody>() {
+    public final static Creator<PaymentBody> CREATOR = new Creator<PaymentBody>() {
 
 
         @SuppressWarnings({

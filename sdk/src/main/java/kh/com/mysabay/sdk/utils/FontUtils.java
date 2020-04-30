@@ -3,14 +3,13 @@ package kh.com.mysabay.sdk.utils;
 import android.content.Context;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.support.v4.content.res.ResourcesCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextPaint;
 import android.text.style.MetricAffectingSpan;
 import android.text.style.StyleSpan;
-
-import androidx.collection.LruCache;
-import androidx.core.content.res.ResourcesCompat;
+import android.util.LruCache;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <android.support.v7.widget.LinearLayoutCompat
         android:id="@+id/view_main_verified"
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,13 +23,13 @@
             android:padding="@dimen/padding_5"
             app:srcCompat="@drawable/ic_back" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/appCompatTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:textAllCaps="true" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv_show_otp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                 app:pinTextBottomPadding="16dp"
                 tools:ignore="SpUsage" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv_resend_otp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_verify" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btn_verify"
                 style="@style/ButtonPrimary"
                 android:layout_width="wrap_content"
@@ -116,6 +116,6 @@
                 layout="@layout/view_empty"
                 android:visibility="gone" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.LinearLayoutCompat>
 </layout>

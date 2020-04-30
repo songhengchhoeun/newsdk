@@ -3,10 +3,9 @@ package kh.com.mysabay.sdk.ui.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatEditText;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;

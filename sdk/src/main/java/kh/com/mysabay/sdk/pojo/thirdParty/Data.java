@@ -33,7 +33,7 @@ public class Data implements Parcelable {
 
     public boolean isPaidWith;
 
-    public final static Parcelable.Creator<Data> CREATOR = new Creator<Data>() {
+    public final static Creator<Data> CREATOR = new Creator<Data>() {
 
 
         @NotNull

@@ -24,7 +24,7 @@ public class ShopItem implements Parcelable {
     @SerializedName("data")
     @Expose
     public List<Data> data = null;
-    public final static Parcelable.Creator<ShopItem> CREATOR = new Creator<ShopItem>() {
+    public final static Creator<ShopItem> CREATOR = new Creator<ShopItem>() {
 
 
         @SuppressWarnings({

@@ -36,7 +36,7 @@ public class DataBody implements Parcelable {
     @SerializedName("purchaseToken")
     @Expose
     public String purchaseToken;
-    public final static Parcelable.Creator<DataBody> CREATOR = new Creator<DataBody>() {
+    public final static Creator<DataBody> CREATOR = new Creator<DataBody>() {
 
 
         @NotNull

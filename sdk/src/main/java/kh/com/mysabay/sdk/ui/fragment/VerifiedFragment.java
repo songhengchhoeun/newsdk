@@ -2,9 +2,8 @@ package kh.com.mysabay.sdk.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
-
-import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -42,7 +41,7 @@ public class VerifiedFragment extends BaseFragment<FragmentVerifiedBinding, User
         mViewBinding.btnBack.setBackgroundResource(colorCodeBackground());
         if (MySabaySDK.getInstance().getSdkConfiguration().sdkTheme == SdkTheme.Light)
             mViewBinding.tvResendOtp.setTextColor(getResources().getColor(R.color.colorWhite700));
-        
+
         this.viewModel = LoginActivity.loginActivity.viewModel;
     }
 

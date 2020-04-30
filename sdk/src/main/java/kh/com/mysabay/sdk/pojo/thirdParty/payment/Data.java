@@ -28,7 +28,7 @@ public class Data implements Parcelable {
     @SerializedName("hash")
     @Expose
     public String hash;
-    public final static Parcelable.Creator<Data> CREATOR = new Creator<Data>() {
+    public final static Creator<Data> CREATOR = new Creator<Data>() {
 
 
         @SuppressWarnings({

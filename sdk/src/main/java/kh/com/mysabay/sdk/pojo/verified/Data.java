@@ -52,8 +52,7 @@ public class Data implements Parcelable {
     @SerializedName("expire")
     @Expose
     public int expire;
-
-    public final static Parcelable.Creator<Data> CREATOR = new Creator<Data>() {
+    public final static Creator<Data> CREATOR = new Creator<Data>() {
 
 
         @SuppressWarnings({
@@ -91,22 +90,24 @@ public class Data implements Parcelable {
     }
 
     /**
+     * @param id
+     * @param accessToken
+     * @param refreshToken
+     * @param uuid
+     * @param serviceId
      * @param mysabayUserId
+     * @param serviceUserId
+     * @param status
      * @param lastLogin
      * @param createdAt
-     * @param serviceUserId
-     * @param id
-     * @param serviceId
-     * @param uuid
-     * @param status
      * @param updatedAt
      */
     public Data(Integer id, String accessToken, String refreshToken, String uuid, Integer serviceId, Integer mysabayUserId, String serviceUserId, Integer status, String lastLogin, String createdAt, String updatedAt, int expire) {
         super();
         this.id = id;
-        this.uuid = uuid;
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;
+        this.uuid = uuid;
         this.serviceId = serviceId;
         this.mysabayUserId = mysabayUserId;
         this.serviceUserId = serviceUserId;
@@ -122,11 +123,6 @@ public class Data implements Parcelable {
         return this;
     }
 
-    public Data withUuid(String uuid) {
-        this.uuid = uuid;
-        return this;
-    }
-
     public Data withAccessToken(String accessToken) {
         this.accessToken = accessToken;
         return this;
@@ -134,6 +130,11 @@ public class Data implements Parcelable {
 
     public Data withRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
+        return this;
+    }
+
+    public Data withUuid(String uuid) {
+        this.uuid = uuid;
         return this;
     }
 
@@ -196,7 +197,7 @@ public class Data implements Parcelable {
             return false;
         }
         Data rhs = ((Data) other);
-        return new EqualsBuilder().append(mysabayUserId, rhs.mysabayUserId).append(lastLogin, rhs.lastLogin).append(createdAt, rhs.createdAt).append(serviceUserId, rhs.serviceUserId).append(id, rhs.id).append(serviceId, rhs.serviceId).append(uuid, rhs.uuid).append(status, rhs.status).append(updatedAt, rhs.updatedAt).isEquals();
+        return new EqualsBuilder().append(accessToken, rhs.accessToken).append(refreshToken, rhs.refreshToken).append(mysabayUserId, rhs.mysabayUserId).append(lastLogin, rhs.lastLogin).append(createdAt, rhs.createdAt).append(serviceUserId, rhs.serviceUserId).append(id, rhs.id).append(serviceId, rhs.serviceId).append(uuid, rhs.uuid).append(status, rhs.status).append(updatedAt, rhs.updatedAt).append(expire, rhs.expire).isEquals();
     }
 
     public void writeToParcel(Parcel dest, int flags) {

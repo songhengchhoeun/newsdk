@@ -8,8 +8,10 @@ buildscript {
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath 'com.android.tools.build:gradle:3.6.1'
+
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,6 +22,15 @@ allprojects {
     repositories {
         google()
         jcenter()
+        
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
     }
 }
 
@@ -83,6 +94,10 @@ ext {
     multidexVersion = "2.0.1"
     workerVersion = "2.3.1"
 
+    PUBLISH_GROUP_ID = 'kh.com.mysabay'
+    PUBLISH_ARTIFACT_ID = 'sabaysdk'
+    PUBLISH_VERSION = '1.0.6-b10'
+
 }
 
 def compatibility(name) {
@@ -125,22 +140,14 @@ def compatibility(name) {
             return "jp.wasabeef:glide-transformations:${thirdLibVersions.glideTransform}"
         case "firebaseUIAuth":
             return "com.firebaseui:firebase-ui-auth:${thirdLibVersions.firebaseUIAuth}"
-        case "roomRuntime":
-            return "androidx.room:room-runtime:$roomVersion"
-        case "roomRxJava2":
-            return "androidx.room:room-rxjava2:$roomVersion"
-        case "roomTesting":
-            return "androidx.room:room-testing:$roomVersion"
-        case "roomGuava":
-            return "androidx.room:room-guava:$roomVersion"
         case "photoView":
             return "com.github.chrisbanes:PhotoView:$thirdLibVersions.photoView"
         case "material":
             return "com.google.android.material:material:$supportLib.material"
         case "rxBindingMaterial":
             return "com.jakewharton.rxbinding3:rxbinding-material:3.0.0"
-        case "lifecycleExtensions":
-            return "androidx.lifecycle:lifecycle-extensions:$lifeCycleVersion"
+        case "jodaTime":
+            return "joda-time:joda-time:2.10.5"
         case "retrofit":
             return "com.squareup.retrofit2:retrofit:$thirdLibVersions.retrofit"
         case "converterScalars":
@@ -151,10 +158,20 @@ def compatibility(name) {
             return "com.squareup.retrofit2:adapter-rxjava2:$thirdLibVersions.retrofit"
         case "okhttp3-logging-interceptor":
             return "com.squareup.okhttp3:logging-interceptor:$thirdLibVersions.okhttp3"
+
+
+        case "roomRuntime":
+            return "androidx.room:room-runtime:$roomVersion"
+        case "roomRxJava2":
+            return "androidx.room:room-rxjava2:$roomVersion"
+        case "roomTesting":
+            return "androidx.room:room-testing:$roomVersion"
+        case "roomGuava":
+            return "androidx.room:room-guava:$roomVersion"
+        case "lifecycleExtensions":
+            return "androidx.lifecycle:lifecycle-extensions:$lifeCycleVersion"
         case "multidex":
             return "androidx.multidex:multidex:$multidexVersion"
-        case "jodaTime":
-            return "joda-time:joda-time:2.10.5"
         case "workManagerRx":
             return "androidx.work:work-rxjava2:$workerVersion"
         case "workManagerJava":
@@ -164,8 +181,3 @@ def compatibility(name) {
     }
 
 }
-
-def static getDate() {
-    return new Date().format('yyyyMMddHHmm')
-}
-

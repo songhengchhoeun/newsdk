@@ -1,13 +1,10 @@
 package kh.com.mysabay.sdk.utils;
 
-import androidx.test.espresso.IdlingResource;
+import android.support.test.espresso.IdlingResource;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * Created by Tan Phirum on 3/5/18.
- */
-public class IdlingResourceHelper implements IdlingResource {
+public class IdlingResourceHelper  implements IdlingResource {
 
     private volatile ResourceCallback mResourceCallback;
 

@@ -51,7 +51,7 @@ public class Data implements Parcelable {
     @SerializedName("expire")
     @Expose
     public long expire;
-    public final static Parcelable.Creator<Data> CREATOR = new Creator<Data>() {
+    public final static Creator<Data> CREATOR = new Creator<Data>() {
 
 
         @NotNull

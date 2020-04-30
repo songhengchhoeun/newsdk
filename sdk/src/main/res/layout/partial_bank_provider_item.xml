@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.card.MaterialCardView
+    <android.support.design.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/padding_5"
         app:cardCornerRadius="@dimen/padding_5">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <android.support.constraint.ConstraintLayout
             android:id="@+id/view_bank_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
             android:paddingTop="@dimen/padding_10"
             android:paddingBottom="@dimen/padding_10">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/appCompatImageView2"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_back" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/bank_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 app:layout_constraintTop_toTopOf="@+id/appCompatImageView2"
                 app:textAllCaps="true" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/img_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/appCompatImageView2"
                 app:srcCompat="@drawable/ic_chevron_right" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.design.card.MaterialCardView>
 
 </layout>

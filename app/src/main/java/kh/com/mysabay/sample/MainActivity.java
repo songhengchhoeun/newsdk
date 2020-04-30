@@ -1,10 +1,9 @@
 package kh.com.mysabay.sample;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 
 import kh.com.mysabay.sample.databinding.ActivityMainBinding;
 import kh.com.mysabay.sdk.MySabaySDK;

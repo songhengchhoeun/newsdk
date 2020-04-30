@@ -31,7 +31,7 @@ public class Data implements Parcelable {
     @SerializedName("price_in_sc")
     @Expose
     public Float priceInSc;
-    public final static Parcelable.Creator<Data> CREATOR = new Creator<Data>() {
+    public final static Creator<Data> CREATOR = new Creator<Data>() {
 
 
         @SuppressWarnings({
