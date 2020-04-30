@@ -1,8 +1,6 @@
 apply plugin: 'com.android.library'
 
 ext {
-    bintrayRepo = 'customwidgets'
-    bintrayName = 'PinEntryEditText'
 
     publishedGroupId = 'com.alimuzaffar.lib'
     libraryName = 'PinEntryEditText'
@@ -29,7 +27,7 @@ android {
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName '2.0.6'
